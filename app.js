@@ -18,15 +18,15 @@ app.post('/register', function(request, response){
 
     MongoClient.connect(url,{ useNewUrlParser: true }, function(err, client) {
         assert.equal(null, err);
-        console.log("Connected successfully to server");
         let user = {
           firstName: firstName,
           lastName: lastName,
           password: password,
           email:email
         }
-        dbName = "wtf";
+        dbName = "heroku_7wll8x55";
         const db = client.db(dbName);
+        console.log("Connected successfully to server");
         db.collection("user").insertOne(user, function(err,res){
           if(err){
             response.status(500).json({"error":"Something went wrong"});
@@ -43,7 +43,7 @@ app.post('/register', function(request, response){
 app.get('/users',function(request, response){
   MongoClient.connect(url,{ useNewUrlParser: true }, function(err, client) {
     assert.equal(null, err);
-    dbName = "wtf";
+    dbName = "heroku_7wll8x55";
     const db = client.db(dbName);
     db.collection("user").find({}).toArray(function(error,results){
       console.log(results);
