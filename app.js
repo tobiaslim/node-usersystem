@@ -4,7 +4,7 @@ var app = express();
 var assert = require('assert')
 var bodyParser = require('body-parser');
 const MongoClient = require('mongodb').MongoClient;
-const url = 'mongodb://test:test123@ds111963.mlab.com:11963/heroku_7wll8x55'
+const url = process.env.MONGODB_URI || 'mongodb://mongo-wtf/';
 var port = process.env.PORT || 3000;
 
 app.use(express.static('public'));
