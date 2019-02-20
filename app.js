@@ -25,7 +25,7 @@ app.post('/register', function(request, response){
           password: password,
           email:email
         }
-        dbName = "heroku_4sc2flcb";
+        dbName = "wtf";
         const db = client.db(dbName);
         db.collection("user").insertOne(user, function(err,res){
           if(err){
@@ -43,7 +43,7 @@ app.post('/register', function(request, response){
 app.get('/users',function(request, response){
   MongoClient.connect(url,{ useNewUrlParser: true }, function(err, client) {
     assert.equal(null, err);
-    dbName = "heroku_4sc2flcb";
+    dbName = "wtf";
     const db = client.db(dbName);
     db.collection("user").find({}).toArray(function(error,results){
       console.log(results);
